@@ -1,0 +1,163 @@
+@font-face {
+    font-family: "Lora";
+    src: url("../fonts/Lora-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Light.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("../fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Medium";
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+
+
+
+
+html, body {
+    font-family: "Lora";
+    max-width: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    font-family: "Lora";
+    background:  no-repeat center fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    background-color: #464646; 
+
+    min-height: 100vh;   
+}
+
+.header .navbar {
+    font-family: "Roboto";
+    background-color: transparent !important;
+}
+
+#tituloPrincipal h1 , .row3 h1 {
+    font-size: calc(2em + 4vw)
+}
+
+#tituloPrincipal h6 {
+    font-size: calc(0.8em + 1vw)
+
+}
+
+.row3 {
+    background-color: rgb(77, 103, 79);
+    font-size: 80%;
+}
+
+
+.row5 h1 {
+    font-size: 3em;
+    font-style: medium;
+    font-weight: medium;
+}
+.row5 h4,  .row7 h4 ,.row9 h4   {
+    
+    font-style: medium;
+    font-weight: bold;
+}
+
+.row5 p {
+    font-family: "Roboto-Regular";
+    font-size: 1.3em;
+}
+
+.caracteristicas {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+
+.swiper-container{
+    height: 100%;
+    width: 100%;
+    padding: 20%;
+}
+
+
+.swiper-slide{
+    padding-top: 7.5vh;
+}
+
+
+.galeria img {
+    margin: auto;
+    padding: auto;
+    height: 80vh;
+}
+
+@media (min-width: 65em) and (max-width:74em) {
+    .swiper-slide.swiper-slide  {
+       /* going for a 2 column layout here */
+       width: 50%;
+       /* centeredSlides set to true */
+       /* reposition so first slide appears on left */
+       transform: translateX(-50%);
+    }
+
+    .swiper-wrapper {
+        /* now arrows appear */
+        /* make room for arrows */
+        width: 80%;
+     }
+
+     .galeria img {
+        margin: auto;
+        padding: auto;
+        height: 75vh;
+    }
+
+    
+ }
+
+ @media (min-width: 75em) {
+    .swiper-slide.swiper-slide  {
+       /* going for a 2 column layout here */
+       width: 33%;
+       /* centeredSlides set to true */
+       /* reposition so first slide appears on left */
+    }
+    .row5 {
+        padding-left: 9em;
+        padding-right: 9em;
+    }
+
+    .swiper-wrapper {
+        /* now arrows appear */
+        /* make room for arrows */
+        width: 80%;
+     }
+
+     #tituloPrincipal h1 , .row3 h1 {
+        font-size: calc(3em + 4.5vw)
+    }
+
+    .galeria img {
+        height: 75vh;
+        width: 27vw;
+    }
+
+    .row5 h1 {
+        font-size: 5em;
+        font-style: medium;
+        font-weight: medium;
+    }
+ }
+
