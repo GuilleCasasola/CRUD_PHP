@@ -50,7 +50,7 @@ include("conexion.php");
 
 			<form class="form-inline" method="get">
 	
-					<div class="form-group col-12 w-100">
+					<div class="form-group col-7 col-lg-10 w-100">
 						<select name="filter" class="form-control" onchange="form.submit()">
 							<option value="0">Filtros por estado</option>
 							<?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
@@ -58,7 +58,9 @@ include("conexion.php");
 							<option value="en curso" <?php if($filter == 'en curso'){ echo 'selected'; } ?>>En curso</option>
 							<option value="realizada" <?php if($filter == 'realizada'){ echo 'selected'; } ?>>Realizadas</option>
 						</select>
-							<a href="add.php" class="btn btn-success float-right"> + Agregar nota</a>
+					</div>
+					<div class="col-5 col-lg-2">
+						<a href="add.php" class="btn btn-success float-right w-100"> + Agregar nota</a>
 					</div>
 					
 	

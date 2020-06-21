@@ -4,9 +4,10 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <div class="navbar-nav text-center">
       <a class="nav-item nav-link" href=".">Notas</a>
       <a class="nav-item nav-link" href="add.php">Agregar Nota</a>
     </div>
   </div>
 </nav>
+
