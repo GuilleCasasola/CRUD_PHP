@@ -1,5 +1,10 @@
 <?php
-include("conexion.php");
+	include("conexion.php");
+	session_start();
+	if (empty($_SESSION["usuario"])) {
+		header("Location: ./login_view.php");
+		exit();
+	}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,12 +38,12 @@ include("conexion.php");
 			<?php
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
-				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-				$cek = mysqli_query($con, "SELECT * FROM notas WHERE id='$nik'");
+				$nik = mysqli_real_escape_string($db,(strip_tags($_GET["nik"],ENT_QUOTES)));
+				$cek = mysqli_query($db, "SELECT * FROM notas WHERE id='$nik'");
 				if(mysqli_num_rows($cek) == 0){
 					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
 				}else{
-					$delete = mysqli_query($con, "DELETE FROM notas WHERE id='$nik'");
+					$delete = mysqli_query($db, "DELETE FROM notas WHERE id='$nik'");
 					if($delete){
 						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
 					}else{
@@ -77,9 +82,9 @@ include("conexion.php");
 				</tr>
 				<?php
 				if($filter){
-					$sql = mysqli_query($con, "SELECT * FROM notas WHERE estado='$filter' ORDER BY id DESC");
+					$sql = mysqli_query($db, "SELECT * FROM notas WHERE estado='$filter' ORDER BY id DESC");
 				}else{
-					$sql = mysqli_query($con, "SELECT * FROM notas ORDER BY id DESC");
+					$sql = mysqli_query($db, "SELECT * FROM notas ORDER BY id DESC");
 				}
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';

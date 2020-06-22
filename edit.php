@@ -29,20 +29,20 @@ include("conexion.php");
 			
 			<?php
 			// escaping, additionally removing everything that could be (html/javascript-) code
-			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			$sql = mysqli_query($con, "SELECT * FROM notas WHERE id='$nik'");
+			$nik = mysqli_real_escape_string($db,(strip_tags($_GET["nik"],ENT_QUOTES)));
+			$sql = mysqli_query($db, "SELECT * FROM notas WHERE id='$nik'");
 			if(mysqli_num_rows($sql) == 0){
 				header("Location: index.php");
 			}else{
 				$row = mysqli_fetch_assoc($sql);
 			}
 			if(isset($_POST['save'])){
-				$id		     = mysqli_real_escape_string($con,(strip_tags($_POST["codigo"],ENT_QUOTES)));//Escanpando caracteres 
-				$descripcion		     = mysqli_real_escape_string($con,(strip_tags($_POST["descripcion"],ENT_QUOTES)));//Escanpando caracteres 
-				$fecha_limite	 = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_nacimiento"],ENT_QUOTES)));//Escanpando caracteres 
-				$estado			 = mysqli_real_escape_string($con,(strip_tags($_POST["estado"],ENT_QUOTES)));//Escanpando caracteres  
+				$id		     = mysqli_real_escape_string($db,(strip_tags($_POST["codigo"],ENT_QUOTES)));//Escanpando caracteres 
+				$descripcion		     = mysqli_real_escape_string($db,(strip_tags($_POST["descripcion"],ENT_QUOTES)));//Escanpando caracteres 
+				$fecha_limite	 = mysqli_real_escape_string($db,(strip_tags($_POST["fecha_nacimiento"],ENT_QUOTES)));//Escanpando caracteres 
+				$estado			 = mysqli_real_escape_string($db,(strip_tags($_POST["estado"],ENT_QUOTES)));//Escanpando caracteres  
 				
-				$update = mysqli_query($con, "UPDATE notas SET descripcion='$descripcion', fecha_limite='$fecha_limite',estado='$estado' WHERE id='$nik'") or die(mysqli_error());
+				$update = mysqli_query($db, "UPDATE notas SET descripcion='$descripcion', fecha_limite='$fecha_limite',estado='$estado' WHERE id='$nik'") or die(mysqli_error());
 				if($update){
 					header("Location: edit.php?nik=".$nik."&pesan=sukses");
 				}else{

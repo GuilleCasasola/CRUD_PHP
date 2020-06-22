@@ -35,11 +35,11 @@ include("conexion.php");
 
 			<?php
 			if(isset($_POST['add'])){
-				$descripcion		     = mysqli_real_escape_string($con,(strip_tags($_POST["descripcion"],ENT_QUOTES)));//Escanpando caracteres 
-				$fecha_limite	 = mysqli_real_escape_string($con,(strip_tags($_POST["fecha_limite"],ENT_QUOTES)));//Escanpando caracteres 
-				$estado	     = mysqli_real_escape_string($con,(strip_tags($_POST["estado"],ENT_QUOTES)));//Escanpando caracteres 
+				$descripcion		     = mysqli_real_escape_string($db,(strip_tags($_POST["descripcion"],ENT_QUOTES)));//Escanpando caracteres 
+				$fecha_limite	 = mysqli_real_escape_string($db,(strip_tags($_POST["fecha_limite"],ENT_QUOTES)));//Escanpando caracteres 
+				$estado	     = mysqli_real_escape_string($db,(strip_tags($_POST["estado"],ENT_QUOTES)));//Escanpando caracteres 
 
-				$insert = mysqli_query($con, "INSERT INTO notas(descripcion,fecha_limite, estado)
+				$insert = mysqli_query($db, "INSERT INTO notas(descripcion,fecha_limite, estado)
 													VALUES('$descripcion','$fecha_limite','$estado')");
 				if($insert){
 					echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Los datos han sido guardados con éxito.</div>';

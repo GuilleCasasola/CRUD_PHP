@@ -7,7 +7,12 @@
     <div class="navbar-nav text-center">
       <a class="nav-item nav-link" href=".">Notas</a>
       <a class="nav-item nav-link" href="add.php">Agregar Nota</a>
+     
     </div>
+    <div class="float-right">
+    <a class="btn btn-danger" href="./logout.php">Cerrar Sesión</a>
+    </div>
+  
   </div>
 </nav>
 

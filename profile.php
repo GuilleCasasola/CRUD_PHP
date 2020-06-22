@@ -29,9 +29,9 @@ include("conexion.php");
 			
 			<?php
 			// escaping, additionally removing everything that could be (html/javascript-) code
-			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+			$nik = mysqli_real_escape_string($db,(strip_tags($_GET["nik"],ENT_QUOTES)));
 			
-			$sql = mysqli_query($con, "SELECT * FROM notas WHERE id='$nik'");
+			$sql = mysqli_query($db, "SELECT * FROM notas WHERE id='$nik'");
 			if(mysqli_num_rows($sql) == 0){
 				header("Location: index.php");
 			}else{
@@ -39,7 +39,7 @@ include("conexion.php");
 			}
 			
 			if(isset($_GET['aksi']) == 'delete'){
-				$delete = mysqli_query($con, "DELETE FROM notas WHERE id='$nik'");
+				$delete = mysqli_query($db, "DELETE FROM notas WHERE id='$nik'");
 				if($delete){
 					echo '<div class="alert alert-danger alert-dismissable">><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Nota Borrada.</div>';
 				}else{
