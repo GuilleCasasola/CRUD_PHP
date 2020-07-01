@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+
+    <style>
+        #map {  height: 100%;}
+        html,body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+  <script>
+    navigator.geolocation.getCurrentPosition(initMap);
+    var map;
+    function initMap(position) {
+        var myLatLng = { lat: position.coords.latitude, lng: position.coords.longitude };
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: myLatLng,
+            zoom: 18
+        });
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Mi Ubicacion!' 
+        });
+    }
+  </script>
+</html>
